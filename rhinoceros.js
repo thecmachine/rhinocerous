@@ -5,6 +5,10 @@ exports.getAll = () => {
   return rhinoceroses;
 };
 
+exports.getOne = () => {
+  return rhinoceroses;
+};
+
 exports.newRhinoceros = data => {
   const newRhino = {
     id: uuidv4(),

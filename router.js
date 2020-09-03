@@ -7,6 +7,11 @@ router.get('/rhinoceros', (ctx, next) => {
   ctx.response.body = { rhinoceroses };
 });
 
+router.get('/rhino', (ctx, next) => {
+  const rhino = model.getOne();
+  ctx.response.body = { rhino };
+});
+
 router.post('/rhinoceros', (ctx, next) => {
   ctx.response.body = model.newRhinoceros(ctx.request.body);
 });
