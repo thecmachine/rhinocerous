@@ -8,12 +8,12 @@ router.get('/rhinoceros', (ctx, next) => {
 });
 
 router.get('/rhino', (ctx, next) => {
-  const rhino = model.getOne();
+  const rhino = model.getOne(ctx.request.header);
   ctx.response.body = { rhino };
 });
 
 router.post('/rhinoceros', (ctx, next) => {
-  ctx.response.body = model.newRhinoceros(ctx.request.body);
+  ctx.response.body = model.newRhinoceros(ctx.request.header);
 });
 
 module.exports = router;
