@@ -27,7 +27,21 @@ exports.getAll = data => {
 };
 
 exports.getEndangered = () => {
-  return rhinoceroses;
+  const groupBySpecies = rhinoceroses.reduce((rhino, it) => {
+    rhino[it.species] = rhino[it.species] + 1 || 1;
+    return rhino;
+  }, {});
+  let endandgeredRhinos = new Array();
+
+  rhinoceroses.forEach(function(rhino){
+    Object.keys(groupBySpecies).forEach(function(species,value){
+      if(rhino.species === species && value < 3){
+        return species;
+        endandgeredRhinos.push(rhino);
+      }
+    });
+  });
+  return endandgeredRhinos;
 };
 
 exports.getOne = data => {
