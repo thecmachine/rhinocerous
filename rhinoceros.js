@@ -1,8 +1,31 @@
 const uuidv4 = require('uuid/v4');
 let rhinoceroses = require('./data');
 let species = require('./speciesData');
+const data = require('./data');
 
-exports.getAll = () => {
+exports.getAll = data => {
+  if(data.species){
+    return rhinoceroses.map(data.species, value.species);
+  }
+  if(data.name){
+    let namedRhinos = new Array();
+    rhinoceroses.forEach(function(rhino){
+      if(rhino.name === data.name){
+        namedRhinos.push(rhino);
+      }
+    });
+    return namedRhinos;
+  }
+  if(data.species){
+    let speciesedRhinos = new Array();
+    rhinoceroses.forEach(function(rhino){
+      if(rhino.species === data.species){
+        speciesedRhinos.push(rhino);
+      }
+    });
+    return speciesedRhinos;
+  }
+  
   return rhinoceroses;
 };
 

@@ -11,8 +11,8 @@ router.get('/rhino', (ctx, next) => {
   ctx.response.body = { rhino };
 });
 
-router.get('/rhinoceros', (ctx, next) => {
-  const rhinoceroses = model.getAll();
+router.post('/rhinosearch', (ctx, next) => {
+  const rhinoceroses = model.getAll(ctx.request.header);
   ctx.response.body = { rhinoceroses };
 });
 
