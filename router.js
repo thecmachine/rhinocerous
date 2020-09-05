@@ -3,7 +3,8 @@ const router = new Router();
 const model = require('./rhinoceros');
 
 router.get('/endangered', (ctx, next) => {
-  ctx.response.body = ctx.request;
+  const endangeredRhinos = model.getEndangered();
+  ctx.response.body = endangeredRhinos;
 });
 
 router.get('/rhino', (ctx, next) => {

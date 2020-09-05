@@ -26,6 +26,10 @@ exports.getAll = data => {
   return rhinoceroses;
 };
 
+exports.getEndangered = () => {
+  return rhinoceroses;
+};
+
 exports.getOne = data => {
   const rhinoPos = rhinoceroses.map(function(x) {return x.id; }).indexOf(data.id);
   const rhino = rhinoceroses[rhinoPos];
