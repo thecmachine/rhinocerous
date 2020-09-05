@@ -4,9 +4,6 @@ let species = require('./speciesData');
 const data = require('./data');
 
 exports.getAll = data => {
-  if(data.species){
-    return rhinoceroses.map(data.species, value.species);
-  }
   if(data.name){
     let namedRhinos = new Array();
     rhinoceroses.forEach(function(rhino){
